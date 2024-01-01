@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
+const withMT = require("@material-tailwind/react/utils/withMT");
 
-const config: Config = {
+module.exports = withMT({
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -18,24 +19,30 @@ const config: Config = {
         grayf2: "#F2F3F8",
         gray17: "#171717",
         grayea: "#EAEDF9",
+        purpleButton: "#7751F7",
+        white1: "#F0F0F0",
       },
       backgroundImage: {
         gradientPink: "linear-gradient(158deg, #D555C7 14.46%, #F396EA 79.18%)",
         gradientMix:
           "linear-gradient(90deg, #5F45D9 -11.43%, #F961D8 47.91%, #FE9E66 92.14%)",
         gradientBlue: "linear-gradient(243deg, #9A40E4 7.82%, #5C70F4 74.31%)",
+        white: "#fff",
       },
       fontFamily: {
         sora: ["var(--font-sora)"],
         poppins: ["var(--font-poppins)"],
+        inter: ["var(--font-inter)"],
       },
       spacing: {
         120: "7.5rem",
         70: "4.375rem",
         30: "1.875rem",
       },
+      fontSize: {
+        14: "0.9rem",
+      },
     },
   },
-  plugins: [],
-};
-export default config;
+  plugins: [require("@tailwindcss/typography")],
+});

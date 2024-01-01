@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Poppins, Sora } from "next/font/google";
+import { Inter, Poppins, Sora } from "next/font/google";
 import "./globals.scss";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const sora = Sora({ subsets: ["latin"], variable: "--font-sora" });
 const poppins = Poppins({
@@ -9,6 +10,7 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
   variable: "--font-poppins",
 });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,9 +24,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${sora.variable}`}>
+      <body
+        className={`${poppins.variable} ${sora.variable} ${inter.variable}`}
+      >
         <Header></Header>
         {children}
+        <Footer></Footer>
       </body>
     </html>
   );
