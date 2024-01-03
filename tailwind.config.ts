@@ -19,14 +19,18 @@ module.exports = withMT({
         grayf2: "#F2F3F8",
         gray17: "#171717",
         grayea: "#EAEDF9",
+        grayd9: "#D9D9D9",
         purpleButton: "#7751F7",
         white1: "#F0F0F0",
+        purpleCircle: "#B7CEFF",
       },
       backgroundImage: {
         gradientPink: "linear-gradient(158deg, #D555C7 14.46%, #F396EA 79.18%)",
         gradientMix:
           "linear-gradient(90deg, #5F45D9 -11.43%, #F961D8 47.91%, #FE9E66 92.14%)",
         gradientBlue: "linear-gradient(243deg, #9A40E4 7.82%, #5C70F4 74.31%)",
+        gradientSlider:
+          "linear-gradient(90deg, #3F56EE 10.5%, #5094FA 102.82%)",
         white: "#fff",
       },
       fontFamily: {
