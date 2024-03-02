@@ -1,4 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
 import Heading from "@/components/ui/Heading";
+import { workList } from "@/constant";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -11,45 +13,56 @@ function Section3() {
       </Heading>
 
       <div className="flex flex-col gap-[100px]">
-        {Array(4)
-          .fill(4)
-          .map((item, index) => (
-            <div
-              className="flex items-center odd:gap-[104px] even:gap-[70px]  even:flex-row-reverse even:text-right group"
-              key={index}
-            >
-              <div>
-                <div className="text-dark1 mb-4 flex items-start gap-2 group-even:justify-end">
-                  <span>Mobile app, Weather,</span>
-                  <span>Software</span>
-                </div>
-
-                <h3 className="font-bold text-[34px] mb-8">
-                  Weather App UI Kit - WETHY{" "}
-                </h3>
-
-                <p className="text-gray17 text-lg leading-normal mb-10 font-poppins">
-                  Hello Designers! This is the video calling website landing
-                  page design concept. Video calling software is very popular
-                  nowadays.
-                </p>
-
-                <Link href="#" className="text-lg uppercase tracking-[10px]">
-                  <span className="block mb-4">View Portfolio</span>
-                  <div className="w-2/4 h-1 bg-gradientPink"></div>
+        {workList.map((item, index) => (
+          <div
+            key={index}
+            className={`flex items-center ${
+              item.isEven == true
+                ? "group even:gap-[70px] even:flex-row-reverse even:text-right ml-auto"
+                : "odd:gap-[104px] odd:text-left mr-auto"
+            }`}
+          >
+            <div>
+              <div
+                className={` text-dark1 mb-4 group ${
+                  item.isEven == true ? "group-even:justify-end" : ""
+                } flex items-start gap-2`}
+              >
+                <span>{item.text}</span>
+              </div>
+              <h3 className="font-bold text-[34px] mb-8">{item.title}</h3>
+              <p className="text-gray17 text-lg leading-normal mb-10 font-poppins">
+                {item.desc}
+              </p>
+              {item.isEven ? (
+                <Link
+                  href="#"
+                  className="text-lg uppercase tracking-[10px] flex-row justify-end"
+                >
+                  <span className="block mb-4">{item.textSpacing}</span>
+                  <div className={`w-2/4 h-1 bg-${item.borderPink} ml-auto`} />
                 </Link>
-              </div>
-              <div className="w-full max-w-[700px] flex-shrink-0">
-                <Image
-                  src="/image1.png"
-                  alt=""
-                  className="w-full h-full object-cover"
-                  width={700}
-                  height={585}
-                ></Image>
-              </div>
+              ) : (
+                <Link
+                  href="#"
+                  className="text-lg uppercase tracking-[10px] flex-row justify-start"
+                >
+                  <span className="block mb-4">{item.textSpacing}</span>
+                  <div className={`w-2/4 h-1 bg-${item.borderPink} mr-auto`} />
+                </Link>
+              )}
             </div>
-          ))}
+            <div className="w-full max-w-[700px] flex-shrink-0">
+              <Image
+                src={item.imgWork}
+                alt="image work"
+                className="w-full h-full object-cover"
+                width={700}
+                height={585}
+              ></Image>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

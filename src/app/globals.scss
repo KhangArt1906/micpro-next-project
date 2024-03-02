@@ -25,4 +25,9 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .blur-left,
+  .blur-right {
+    filter: blur(148.0087432861328px);
+  }
 }

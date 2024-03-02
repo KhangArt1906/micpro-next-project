@@ -1,11 +1,13 @@
 import { IconCheckPink } from "@/components/icons";
 import Button from "@/components/ui/Button";
 import Heading from "@/components/ui/Heading";
+import { servicesList } from "@/constant/services";
+import Image from "next/image";
 import React from "react";
 
 function Section5() {
   return (
-    <section className="py-[70px] bg-grayf2 mb-[120px]">
+    <section className="py-[70px] bg-grayf2 mb-[120px] mt-[105px]">
       <div className="main-container">
         <Heading className="max-w-[679px] mb-[70px]">
           Find the plan that fits your budget
@@ -21,80 +23,78 @@ function Section5() {
         </div>
 
         <div className="flex gap-8">
-          <div className="w-full max-w-[730px] bg-grayea">
-            <div className="bg-white py-5 px-8 rounded-t-xl">
-              <div className="flex items-center justify-between mb-3">
-                <h5 className="font-semibold font-poppins">Pro</h5>
-                <span
-                  className="flex items-center justify-center rounded-full py-3 px-6 text-primary
-                  bg-primary bg-opacity-10 font-poppins text-sm font-medium
-                  "
-                >
-                  Most popular
-                </span>
-              </div>
-
-              <h4 className="text-[50px] font-bold">
-                $35
-                <small className="text-xl text-dark1 font-poppins font-normal">
-                  /Per Month
-                </small>
-              </h4>
-            </div>
-            <div className="py-11 px-10 rounded-b-xl bg-grayea">
-              <div className="grid grid-cols-2 gap-10 mb-11">
-                <div className="flex flex-col gap-5">
-                  <div className="flex items-center gap-3 font-poppins text-lg text-dark1">
-                    <IconCheckPink></IconCheckPink>
-                    <p>UI/UX Designer</p>
-                  </div>
+          {servicesList.map((item, index) => (
+            <div
+              className={`bg-grayea ${
+                item.isFree == false
+                  ? "w-full max-w-[730px]"
+                  : "w-full max-w-[410px]"
+              }`}
+              key={index}
+            >
+              <div className="bg-white py-5 px-8 rounded-t-xl">
+                <div className="flex items-center justify-between mb-3">
+                  <h5 className="font-semibold font-poppins">
+                    {item.textLeft}
+                  </h5>
+                  <span
+                    className={`flex items-center justify-center rounded-full py-3 px-6 
+                    font-poppins text-sm font-medium ${
+                      item.isFree == false
+                        ? "bg-primary text-primary bg-opacity-10"
+                        : "bg-primary bg-opacity-5 text-dark"
+                    }`}
+                  >
+                    {item.textRight}
+                  </span>
                 </div>
 
-                <div className="flex flex-col gap-5">
-                  <div className="flex items-center gap-3 font-poppins text-lg text-dark1">
-                    <IconCheckPink></IconCheckPink>
-                    <p>UI/UX Designer</p>
-                  </div>
-                </div>
+                <h4 className="text-[50px] font-bold">
+                  {item.price}
+                  <small className="text-xl text-dark1 font-poppins font-normal">
+                    {item.priceMonth}
+                  </small>
+                </h4>
               </div>
 
-              <Button className="bg-gradientMix font-poppins font-medium py-2 text-white">
-                Buy Now
-              </Button>
-            </div>
-          </div>
-
-          <div className="">
-            <div className="bg-white py-5 px-8 rounded-t-xl">
-              <div className="flex items-center justify-between mb-3">
-                <h5 className="font-semibold font-poppins">Pro</h5>
-                <span
-                  className="flex items-center justify-center rounded-full py-3 px-6 text-primary
-                  bg-primary bg-opacity-10 font-poppins text-sm font-medium
-                  "
+              <div className="py-11 px-10 rounded-b-xl bg-grayea">
+                <div
+                  className={`grid ${
+                    item.isFree === true ? "grid-cols-1" : "grid-cols-2"
+                  } gap-5 mb-11`}
                 >
-                  Most popular
-                </span>
-              </div>
+                  {item.services.map((service, serviceIndex) => (
+                    <div
+                      className={`flex ${!item.isFree ? "flex-col" : ""}`}
+                      key={serviceIndex}
+                    >
+                      <div className="flex items-center gap-2 font-poppins text-lg text-dark1">
+                        <Image
+                          src={item.iconCheckPink}
+                          alt="icon check"
+                          width={20}
+                          height={20}
+                        />
+                        <p>{service}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
 
-              <h4 className="text-[50px] font-bold">
-                $35
-                <small className="text-xl text-dark1 font-poppins font-normal">
-                  /Per Month
-                </small>
-              </h4>
-            </div>
-            <div className="py-11 px-10 rounded-b-xl bg-grayea">
-              <div className="flex items-center gap-3 font-poppins text-lg text-dark1 mb-11">
-                <IconCheckPink></IconCheckPink>
-                <p>UI/UX Designer</p>
+                <Button
+                  className={`w-[175px] h-[60px] text-[16px] font-poppins font-medium text-white
+                      ${
+                        item.isFree === false
+                          ? "bg-gradientMix text-white"
+                          : "text-dark border bg-transparent border-solid border-gradientMix"
+                      }
+                `}
+                >
+                  {item.btnBuy}
+                </Button>
               </div>
-
-              <Button className="bg-gradientMix font-poppins font-medium py-2 text-white">
-                Buy Now
-              </Button>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

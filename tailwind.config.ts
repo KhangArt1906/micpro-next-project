@@ -15,6 +15,7 @@ module.exports = withMT({
         dark1: "#81879D",
         primary: "#1663F9",
         secondary: "#FFDB8F",
+        whiteF: "#FFFFFF",
         grayf1: "#F1F5F9",
         grayf2: "#F2F3F8",
         gray17: "#171717",
@@ -23,6 +24,9 @@ module.exports = withMT({
         purpleButton: "#7751F7",
         white1: "#F0F0F0",
         purpleCircle: "#B7CEFF",
+        gradientMix: "#5F45D9",
+        blueIcon: "#349CFF",
+        whiteIcon: "#F8F5EC",
       },
       backgroundImage: {
         gradientPink: "linear-gradient(158deg, #D555C7 14.46%, #F396EA 79.18%)",
@@ -32,6 +36,9 @@ module.exports = withMT({
         gradientSlider:
           "linear-gradient(90deg, #3F56EE 10.5%, #5094FA 102.82%)",
         white: "#fff",
+      },
+      blur: {
+        blurPx: "148.0087432861328px",
       },
       fontFamily: {
         sora: ["var(--font-sora)"],

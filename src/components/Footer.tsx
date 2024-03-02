@@ -1,7 +1,119 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// Define prop types for ListItem component
+interface ListItemProps {
+  text: string;
+  link: string;
+}
+
+// List component for a section of the footer
+const List: React.FC<{ title: string; items: ListItemProps[] }> = ({
+  title,
+  items,
+}) => (
+  <div className="p-5">
+    <ul>
+      <p className="text-dark font-medium text-[16px] pb-[25px]">{title}</p>
+      {items.map((item, index) => (
+        <ListItem key={index} {...item} />
+      ))}
+    </ul>
+  </div>
+);
+
+const ListItem: React.FC<ListItemProps> = ({ text, link }) => (
+  <li className="font-sora font-medium text-dark1 mt-2">
+    <a href={link}>{text}</a>
+  </li>
+);
+
+// NavigationLinks component for rendering navigation links
+const NavigationLinks = () => (
+  <ul className="flex items-center justify-center gap-10 font-poppins text-[12px] font-normal text-dark1 mt-3">
+    <Link href="/">Platform</Link>
+    <Link href="/">Products</Link>
+    <Link href="/">Resources</Link>
+  </ul>
+);
+
+// CopyrightText component for rendering copyright text
+const CopyrightText = () => (
+  <p className="text-dark1 font-inter font-normal text-center items-center mt-2.5">
+    © 2024 Besnik.com I All Rights Reserved
+  </p>
+);
+
+// SocialMediaIcons component for rendering social media icons
+const SocialMediaIcons = () => (
+  <div className="flex items-center justify-center gap-[12px]">
+    <Link
+      className="rounded-full bg-white border-[2px] border-white1 flex items-center justify-center w-[46px] h-[46px]"
+      href="/"
+    >
+      <Image src="/basketball.svg" alt="Facebook" width={20} height={20} />
+    </Link>
+    <Link
+      className="rounded-full bg-white border-[2px] border-white1 flex items-center justify-center w-[46px] h-[46px]"
+      href="/"
+    >
+      <Image src="/basketball.svg" alt="Facebook" width={20} height={20} />
+    </Link>
+
+    <Link
+      className="rounded-full bg-white border-[2px] border-white1 flex items-center justify-center w-[46px] h-[46px]"
+      href="/"
+    >
+      <Image src="/basketball.svg" alt="Facebook" width={20} height={20} />
+    </Link>
+    <Link
+      className="rounded-full bg-white border-[2px] border-white1 flex items-center justify-center w-[46px] h-[46px]"
+      href="/"
+    >
+      <Image src="/basketball.svg" alt="Facebook" width={20} height={20} />
+    </Link>
+    {/* Add other social media icons or components here */}
+  </div>
+);
+
 function Footer() {
+  const sections = [
+    {
+      title: "Product",
+      items: [
+        { text: "Careere", link: "/" },
+        { text: "About Us", link: "/" },
+        { text: "Insights", link: "/" },
+        { text: "PCI Compliance", link: "/" },
+        { text: "Integrations", link: "/" },
+        { text: "Pricing", link: "/" },
+        // Add more items as needed
+      ],
+    },
+    {
+      title: "For Developers",
+      items: [
+        { text: "Docs", link: "/" },
+        { text: "Knowledge Base", link: "/" },
+        { text: "System Status", link: "/" },
+        { text: "Tutorials", link: "/" },
+        { text: "Security", link: "/" },
+        // Add more items as needed
+      ],
+    },
+    {
+      title: "Resources",
+      items: [
+        { text: "About", link: "/" },
+        { text: "Leadership", link: "/" },
+        { text: "Press/News", link: "/" },
+        { text: "Careers/Team", link: "/" },
+        { text: "Contact Us", link: "/" },
+        // Add more items as needed
+      ],
+    },
+  ];
+
   return (
     <div className="w-full h-full">
       <div className="main-container font-poppins bg-white flex md:flex-row flex-col justify-around items-start pt-[120px]">
@@ -17,77 +129,9 @@ function Footer() {
           </ul>
         </div>
 
-        <div className="p-5">
-          <ul>
-            <p className="text-dark font-medium text-[16px] pb-[25px]">
-              Product
-            </p>
-            <li className="text-dark1 pb-3 text-14 font-normal cursor-pointer">
-              Careere
-            </li>
-            <li className="text-dark1 pb-3 text-14 font-normal cursor-pointer">
-              About Us
-            </li>
-            <li className="text-dark1 pb-3 text-14 font-normal cursor-pointer">
-              Insights
-            </li>
-            <li className="text-dark1 pb-3 text-14 font-normal cursor-pointer">
-              PCI Compliance
-            </li>
-            <li className="text-dark1 pb-3 text-14 font-normal cursor-pointer">
-              Integratlons
-            </li>
-            <li className="text-dark1 pb-3 text-14 font-normal cursor-pointer">
-              Pricing
-            </li>
-          </ul>
-        </div>
-
-        <div className="p-5">
-          <ul>
-            <p className="text-dark font-medium text-[16px] pb-[25px]">
-              For Developers
-            </p>
-            <li className="text-dark1 pb-3 text-14 font-normal cursor-pointer">
-              Docs
-            </li>
-            <li className="text-dark1 pb-3 text-14 font-normal cursor-pointer">
-              Knowledge Base
-            </li>
-            <li className="text-dark1 pb-3 text-14 font-normal cursor-pointer">
-              System Status
-            </li>
-            <li className="text-dark1 pb-3 text-14 font-normal cursor-pointer">
-              Tutorials
-            </li>
-            <li className="text-dark1 pb-3 text-14 font-normal cursor-pointer">
-              Security
-            </li>
-          </ul>
-        </div>
-
-        <div className="p-5">
-          <ul>
-            <p className="text-dark font-medium text-[16px] pb-[25px]">
-              Resources
-            </p>
-            <li className="text-dark1 pb-3 text-14 font-normal cursor-pointer">
-              About
-            </li>
-            <li className="text-dark1 pb-3 text-14 font-normal cursor-pointer">
-              Leadership
-            </li>
-            <li className="text-dark1 pb-3 text-14 font-normal cursor-pointer">
-              Press/News
-            </li>
-            <li className="text-dark1 pb-3 text-14 font-normal cursor-pointer">
-              Careers/Team
-            </li>
-            <li className="text-dark1 pb-3 text-14 font-normal cursor-pointer">
-              Contact Us
-            </li>
-          </ul>
-        </div>
+        {sections.map((section, index) => (
+          <List key={index} {...section} />
+        ))}
 
         <div className="p-5">
           <ul>
@@ -160,88 +204,11 @@ function Footer() {
       <div className="w-full border border-t-white1 mt-[86px] mb-[46px]"></div>
 
       <div className="main-container flex md:flex-row flex-col justify-between items-start">
-        <ul className="flex items-center justify-center gap-10 font-poppins text-[12px] font-normal text-dark1 mt-3">
-          <Link href="/">Platform</Link>
-          <Link href="/">Products</Link>
-          <Link href="/">Resources</Link>
-        </ul>
+        <NavigationLinks />
 
-        <p className="text-dark1 font-inter font-normal text-center items-center mt-2.5">
-          © 2021 Besnik.com I All Rights Reserved
-        </p>
+        <CopyrightText />
 
-        <div className="flex items-center justify-center gap-[16px]">
-          <Link
-            className="rounded-full bg-white
-            border-[2px] border-white1 flex items-center justify-center w-[38px] h-[38px]"
-            href="/"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 16 16"
-              id="facebook"
-              width={16}
-              height={16}
-            >
-              <path
-                fill="#1976D2"
-                fill-rule="evenodd"
-                d="M12 5.5H9v-2a1 1 0 0 1 1-1h1V0H9a3 3 0 0 0-3 3v2.5H4V8h2v8h3V8h2l1-2.5z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </Link>
-
-          <Link
-            className="rounded-full bg-white
-            border-[2px] border-white1 flex items-center justify-center w-[38px] h-[38px]"
-            href="/"
-          >
-            <svg
-              xmlns="http://www.w3.org/1600/svg"
-              viewBox="0 0 16 16"
-              id="google-plus"
-              width={16}
-              height={16}
-            >
-              <g fill="#F44336">
-                <path d="M16 7h-2V5h-1v2h-2v1h2v2h1V8h2zM5 9h2.829A3.006 3.006 0 0 1 5 11c-1.654 0-3-1.346-3-3s1.346-3 3-3c.717 0 1.407.257 1.943.724l1.314-1.508A4.955 4.955 0 0 0 5 3C2.243 3 0 5.243 0 8s2.243 5 5 5 5-2.243 5-5V7H5v2z"></path>
-              </g>
-            </svg>
-          </Link>
-
-          <Link
-            className="rounded-full bg-white
-            border-[2px] border-white1 flex items-center justify-center w-[38px] h-[38px]"
-            href="/"
-          >
-            <svg
-              xmlns="http://www.w3.org/1600/svg"
-              viewBox="0 0 16 16"
-              id="twitter"
-              width={16}
-              height={16}
-            >
-              <path
-                fill="#03A9F4"
-                d="M16 3.539a6.839 6.839 0 0 1-1.89.518 3.262 3.262 0 0 0 1.443-1.813 6.555 6.555 0 0 1-2.08.794 3.28 3.28 0 0 0-5.674 2.243c0 .26.022.51.076.748a9.284 9.284 0 0 1-6.761-3.431 3.285 3.285 0 0 0 1.008 4.384A3.24 3.24 0 0 1 .64 6.578v.036a3.295 3.295 0 0 0 2.628 3.223 3.274 3.274 0 0 1-.86.108 2.9 2.9 0 0 1-.621-.056 3.311 3.311 0 0 0 3.065 2.285 6.59 6.59 0 0 1-4.067 1.399c-.269 0-.527-.012-.785-.045A9.234 9.234 0 0 0 5.032 15c6.036 0 9.336-5 9.336-9.334 0-.145-.005-.285-.012-.424A6.544 6.544 0 0 0 16 3.539z"
-              ></path>
-            </svg>
-          </Link>
-
-          <Link
-            className="rounded-full bg-white
-            border-[2px] border-white1 flex items-center justify-center w-[38px] h-[38px]"
-            href="/"
-          >
-            <Image
-              src="./basketball.svg"
-              width={16}
-              height={16}
-              alt="Basketball"
-            />
-          </Link>
-        </div>
+        <SocialMediaIcons />
       </div>
     </div>
   );

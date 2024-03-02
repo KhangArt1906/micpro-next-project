@@ -32,23 +32,6 @@ function Section4() {
               ))}
             </div>
           </div>
-
-          // <div className="bg-white rounded-xl py-6 px-8">
-          //   <h4 className="font-bold text-xl pb-5 border-b border-b-grayf2">
-          //     Webflow Design
-          //   </h4>
-
-          //   <div className="flex flex-col gap-4">
-          //     {Array(4)
-          //       .fill(0)
-          //       .map((item, index) => (
-          //         <CoreItem
-          //         icon={<IconCheckList type="orange"></IconCheckList>}
-          //         key={index}
-          //         ></CoreItem>
-          //       ))}
-          //   </div>
-          // </div>
         ))}
       </div>
     </section>
