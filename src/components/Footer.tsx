@@ -51,27 +51,28 @@ const SocialMediaIcons = () => (
       className="rounded-full bg-white border-[2px] border-white1 flex items-center justify-center w-[46px] h-[46px]"
       href="/"
     >
-      <Image src="/basketball.svg" alt="Facebook" width={20} height={20} />
+      <Image src="/facebook.png" width={20} height={20} alt="Facebook" />
     </Link>
     <Link
       className="rounded-full bg-white border-[2px] border-white1 flex items-center justify-center w-[46px] h-[46px]"
       href="/"
     >
-      <Image src="/basketball.svg" alt="Facebook" width={20} height={20} />
+      <Image src="/google_plus.png" alt="Google" width={20} height={20} />
     </Link>
 
     <Link
       className="rounded-full bg-white border-[2px] border-white1 flex items-center justify-center w-[46px] h-[46px]"
       href="/"
     >
-      <Image src="/basketball.svg" alt="Facebook" width={20} height={20} />
+      <Image src="/twitter.png" alt="Twitter" width={20} height={20} />
     </Link>
     <Link
       className="rounded-full bg-white border-[2px] border-white1 flex items-center justify-center w-[46px] h-[46px]"
       href="/"
     >
-      <Image src="/basketball.svg" alt="Facebook" width={20} height={20} />
+      <Image src="/basketball.svg" alt="Basketball" width={20} height={20} />
     </Link>
+
     {/* Add other social media icons or components here */}
   </div>
 );

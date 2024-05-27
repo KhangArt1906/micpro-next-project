@@ -1,11 +1,8 @@
 import CarouselSlider from "@/components/ui/CarouselSlider";
 import Heading from "@/components/ui/Heading";
 import { teamList } from "@/constant/services";
-import { Carousel } from "@material-tailwind/react";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
-import Slider from "react-slick";
 
 function Section6() {
   return (
