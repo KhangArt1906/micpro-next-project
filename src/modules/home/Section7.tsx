@@ -19,7 +19,7 @@ function Section7() {
                   src={item.imageBlog}
                   width={360}
                   height={270}
-                  alt="hinh desgin blog"
+                  alt="Hinh design blog"
                 />
               </div>
 

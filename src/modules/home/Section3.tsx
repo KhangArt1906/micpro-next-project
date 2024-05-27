@@ -40,7 +40,13 @@ function Section3() {
                   className="text-lg uppercase tracking-[10px] flex-row justify-end"
                 >
                   <span className="block mb-4">{item.textSpacing}</span>
-                  <div className={`w-2/4 h-1 bg-${item.borderPink} ml-auto`} />
+                  <div
+                    style={{
+                      background:
+                        "linear-gradient(158deg, #D555C7 14.46%, #F396EA 79.18%)",
+                    }}
+                    className="w-2/4 h-1 ml-auto"
+                  />
                 </Link>
               ) : (
                 <Link
@@ -48,7 +54,13 @@ function Section3() {
                   className="text-lg uppercase tracking-[10px] flex-row justify-start"
                 >
                   <span className="block mb-4">{item.textSpacing}</span>
-                  <div className={`w-2/4 h-1 bg-${item.borderPink} mr-auto`} />
+                  <div
+                    style={{
+                      background:
+                        "linear-gradient(158deg, #D555C7 14.46%, #F396EA 79.18%)",
+                    }}
+                    className="w-2/4 h-1 mr-auto"
+                  />
                 </Link>
               )}
             </div>
